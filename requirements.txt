@@ -1,0 +1,6 @@
+transformers
+boto3
+rouge
+konlpy
+tqdm
+wandb
