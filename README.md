@@ -39,7 +39,7 @@ python preprocess.py --data_root {directory/your/zipfile/is}
 pip install -r requirements.txt
 ```
 
-- install **pytorch** at https://pytorch.org/
+- install **pytorch** from https://pytorch.org/
 
 ---
 
