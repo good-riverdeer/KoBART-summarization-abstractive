@@ -8,18 +8,18 @@ KoBART abstractive summarization with **pytorch**
 
 - [AI-Hub](https://aihub.or.kr/)
   - "[문서요약 텍스트](https://aihub.or.kr/aidata/8054)" 데이터 활용
-    - Train: 
-    - Validation:
-  - "[논문요약 텍스트](https://aihub.or.kr/aidata/30712)" 데이터 활용 (comming soon)
-    - Train:
-    - Validation:
+    - Train: 325,072
+    - Validation: 40,134
+  - "[논문요약 텍스트](https://aihub.or.kr/aidata/30712)" 데이터 활용
+    - Train: 715,652
+    - Validation: 73,061
 
 ---
 
 ## Data unzip
 
 ```
-python preprocess.py --data_root directory/your/zipfile/is
+python preprocess.py --data_root {directory/your/zipfile/is}
 ```
 
 - `논문요약 텍스트/*.zip` -> `training.tsv`, `validation.tsv`
@@ -39,12 +39,14 @@ python preprocess.py --data_root directory/your/zipfile/is
 pip install -r requirements.txt
 ```
 
+- install **pytorch** at https://pytorch.org/
+
 ---
 
 ## Training
 
 ```
-python train.py --log --data_root dir/your/data/zipfile/is --mecab_path dir/your/mecab/is
+python train.py --log --data_root dir/your/data/is --mecab_path dir/your/mecab/is
 ```
 
 ---

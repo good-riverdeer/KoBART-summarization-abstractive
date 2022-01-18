@@ -157,11 +157,13 @@ def get_kobart_tokenizer(cachedir=".cache"):
 
 
 if __name__ == "__main__":
-    from transformers import BartModel
+    from transformers import BartModel, PreTrainedTokenizerFast
 
-    kobart_tokenizer = get_kobart_tokenizer()
+    # kobart_tokenizer = get_kobart_tokenizer()
+    kobart_tokenizer = PreTrainedTokenizerFast.from_pretrained('gogamza/kobart-base-v1')
     print(kobart_tokenizer.tokenize("안녕하세요. 한국어 BART 입니다.🤣:)l^o"))
 
-    model = BartModel.from_pretrained(get_pytorch_kobart_model())
+    # model = BartModel.from_pretrained(get_pytorch_kobart_model())
+    model = BartModel.from_pretrained('gogamza/kobart-base-v1')
     inputs = kobart_tokenizer(["안녕하세요."], return_tensors="pt")
     print(model(inputs["input_ids"]))
