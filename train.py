@@ -10,11 +10,10 @@ from argparse import ArgumentParser
 
 import numpy as np
 from transformers import get_linear_schedule_with_warmup
-from kobart import get_kobart_tokenizer
 
-from data.dataset import SummarizationData
+from data.dataset import SummarizationDataset
 from modeling.metric import Metric
-from modeling.model import KoBartConditionalGeneration, KoBARTSummarization
+from modeling.model import KoBARTSummarization
 
 
 class Trainer:
@@ -26,7 +25,7 @@ class Trainer:
         self.tokenizer = self.model.tokenizer
 
         # define train dataset
-        train_set = SummarizationData(args=args, split='training', tokenizer=self.tokenizer)
+        train_set = SummarizationDataset(args=args, split='training', tokenizer=self.tokenizer)
         sampling_size = args.train_steps * args.batch_size
         assert len(train_set) >= sampling_size, "Sampling size should be less than Total Train Samples"
         train_sampler = Subset(train_set, np.arange(args.train_steps * args.batch_size))
@@ -34,7 +33,7 @@ class Trainer:
         self.train_loader = DataLoader(train_set, sampler=train_sampler, batch_size=args.batch_size)
 
         # define validation dataset
-        valid_set = SummarizationData(args=args, split='validation', tokenizer=self.tokenizer)
+        valid_set = SummarizationDataset(args=args, split='validation', tokenizer=self.tokenizer)
         self.valid_loader = DataLoader(valid_set, batch_size=args.batch_size)
 
         # define optimizer

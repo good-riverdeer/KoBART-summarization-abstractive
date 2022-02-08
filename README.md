@@ -2,8 +2,6 @@
 
 KoBART abstractive summarization with **pytorch**
 
----
-
 ## Data
 
 - [AI-Hub](https://aihub.or.kr/)
@@ -14,8 +12,6 @@ KoBART abstractive summarization with **pytorch**
     - Train: 715,652
     - Validation: 73,061
 
----
-
 ## Data unzip
 
 ```
@@ -23,8 +19,6 @@ python preprocess.py --data_root {directory/your/zipfile/is}
 ```
 
 - `논문요약 텍스트/*.zip` -> `training.tsv`, `validation.tsv`
-
----
 
 ## Requirements
 
@@ -41,15 +35,11 @@ pip install -r requirements.txt
 
 - install **pytorch** from https://pytorch.org/
 
----
-
 ## Training
 
 ```
-python train.py --log --data_root dir/your/data/is --mecab_path dir/your/mecab/is
+python train.py --log --data_root {dir/your/data/is}
 ```
-
----
 
 ## References
 
